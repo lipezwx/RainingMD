@@ -10,7 +10,6 @@ Per-user install (no administrator rights needed unless the chosen folder requir
 """
 from __future__ import annotations
 
-import importlib
 import random
 import shutil
 import subprocess
@@ -35,7 +34,10 @@ from PySide6.QtWidgets import (
 
 # Reuse the editor's look (palette, buttons, dialogs) instead of copying it.
 _m = sys.modules.get("__main__")
-ui = _m if (_m is not None and hasattr(_m, "MdEdit")) else importlib.import_module("main")
+if _m is not None and hasattr(_m, "MdEdit"):
+    ui = _m
+else:
+    import main as ui  # static import so PyInstaller bundles it into the frozen installer
 
 APP = ui.APP_NAME
 EXE_NAME = "RainingMd.exe"

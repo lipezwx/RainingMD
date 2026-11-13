@@ -1,0 +1,7 @@
+.venv/
+build/
+build_installer/
+dist/
+dist_installer/
+payload/
+__pycache__/
