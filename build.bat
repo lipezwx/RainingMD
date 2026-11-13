@@ -6,9 +6,9 @@ rem  Raining Md - one-click build
 rem    1. the app            -> dist\RainingMd\
 rem    2. the payload zip    -> payload\payload.zip
 rem    3. the installer      -> dist_installer\rainingmd-installer.exe
-rem  Needs 64-bit Python 3.15. To use another version:  set PYTHON_SPEC=-3.14-64
+rem  Needs 64-bit Python 3.13. To use another version:  set PYTHON_SPEC=-3.14-64
 rem ---------------------------------------------------------------
-if "%PYTHON_SPEC%"=="" set PYTHON_SPEC=-3.15-64
+if "%PYTHON_SPEC%"=="" set PYTHON_SPEC=-3.13-64
 
 py %PYTHON_SPEC% --version >nul 2>&1
 if errorlevel 1 goto nopython
@@ -56,7 +56,7 @@ echo Done. Installer: %~dp0dist_installer\rainingmd-installer.exe
 exit /b 0
 
 :nopython
-echo Python %PYTHON_SPEC% was not found. Install 64-bit Python 3.15 from python.org, or set PYTHON_SPEC.
+echo Python %PYTHON_SPEC% was not found. Install 64-bit Python 3.13 from python.org, or set PYTHON_SPEC.
 exit /b 1
 
 :fail
